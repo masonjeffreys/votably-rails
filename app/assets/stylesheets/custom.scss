@@ -1,0 +1,68 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+
+body {
+  padding-top: 60px;
+  padding-bottom: 64px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+.footer{
+  position:fixed;
+  bottom:0;left:0;
+  width:100%;
+  border-top: 1px solid #7d7d7d;
+  padding: 15px;
+  background-color:#f1f2f2;
+  h2{
+    margin:0;
+  }
+}
+
+/* header */
+
+#logo {
+  $logo-text-color: #fff;
+  float: left;
+  font-size: 1.7em;
+  color: $logo-text-color;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover{
+  	color: darken($logo-text-color, 20%);
+  	text-decoration: none;
+  }
+}
+
+/* question builder */
+.choice-container{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.full-width{
+	width: 100%;
+}
+
+.input-group{
+	margin-bottom: 15px;
+}

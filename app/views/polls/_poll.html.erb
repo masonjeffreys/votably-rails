@@ -1,0 +1,17 @@
+<div id="poll-<%=@poll.id%>">
+<h1 class="center"><%= @poll.body %></h1>
+	<table class="table results-container">
+		<tbody>
+			<% @poll.poll_choices.each do |pc| %>
+			<tr class="results-choice">
+				<td>
+					<div class="results-bg-fill" style="width:<%= pc.poll_responses_count*100/@tally_count %>%" id="poll-choice-<%= pc.id %>-bg"></div>
+					<div class="results-stats">
+						<%= pc.body %><span class="pull-right" id="poll-choice-<%= pc.id %>-count"> (<%= pc.poll_responses_count %>)</span>
+					</div>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

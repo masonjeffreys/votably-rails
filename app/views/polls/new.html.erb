@@ -1,0 +1,24 @@
+<div class="center">
+  <h1>POLL YOUR AUDIENCE LIVE<br><small>It's free and takes 5 seconds.</small></h1>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@poll) do |f| %>
+        <%= render 'shared/error_messages' %>
+          <h3>Question text</h3>
+          <%= f.text_area :body, class: 'form-control' %>
+        
+        <div class="choice-container">
+
+          <%= f.fields_for :poll_choices do |builder| %>
+            <%= render 'poll_choice_fields', f: builder %>
+          <% end %>
+
+          <%= link_to_add_fields "Add answer choice", f, :poll_choices %>
+        </div>
+
+        <%= f.submit "Create my poll", class: "btn btn-primary full-width" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<?xml version="1.0"?><tsung loglevel="notice" version="1.0">
+
+  <clients>
+    <client host="localhost" use_controller_vm="true"/>
+  </clients>
+  
+  <servers>
+    <server host="votably-rails.herokuapp.com" port="80" type="tcp"/>
+  </servers>
+
+  <load>
+    <arrivalphase phase="1" duration="30" unit="second">
+      <users maxnumber="1000" arrivalrate="20" unit="second"/>
+    </arrivalphase>
+  </load>
+
+  <sessions>
+
+    <session name="choice6" weight="1" type="ts_http">
+      <request>
+        <dyn_variable name="authenticity-token"/>
+        <http url="/polls/2" method="GET" version="1.1"/>
+      </request> 
+      <thinktime value="1" random="true"/>
+      <request subst="true">
+        <http url="/polls/2/poll_responses" method="POST" version="1.1" contents="poll_choice_id=6&amp;poll_id=2&amp;commit=Submit">
+          <http_header name="X-CSRF-Token" value="%%_authenticity-token%%"/>
+        </http>
+      </request>
+    </session>
+
+    <session name="choice5" weight="2" type="ts_http">
+      <request>
+        <dyn_variable name="authenticity-token"/>
+        <http url="/polls/2" method="GET" version="1.1"/>
+      </request>
+      <thinktime value="1" random="true"/>
+      <request subst="true">
+        <http url="/polls/2/poll_responses" method="POST" version="1.1" contents="poll_choice_id=5&amp;poll_id=2&amp;commit=Submit">
+          <http_header name="X-CSRF-Token" value="%%_authenticity-token%%"/>
+        </http>
+      </request>
+    </session>
+
+  </sessions>
+
+</tsung>

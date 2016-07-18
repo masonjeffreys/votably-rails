@@ -1,0 +1,47 @@
+// Place all the styles related to the Polls controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table.results-container{
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #f1f2f2;
+  margin-top: 10px;
+  background-color: #f6f6f6;
+  vertical-align: middle;
+}
+
+.results-choice{
+  height: 44px;
+  width: 100%;
+  font-size: 13px;
+  border-bottom: #e6e6e6 1px solid;
+  position: relative;
+}
+
+.results-container>tbody>tr>td{
+  border: none;
+  vertical-align: middle;
+  position: relative;
+  padding: 0px;
+  z-index: 0;
+}
+
+.results-container div:last-child { border-bottom:0px; }
+
+.results-bg-fill{
+  background-color: #6BEF76;
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.results-stats{
+  padding: 10px;
+  opacity: .99;
+}
+
+.results-container .results-bg-fill:last-child { bottom-border-radius:4px; }
