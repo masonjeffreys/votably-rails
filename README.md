@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Votably is an app for live polling your audience. It's part of a series where I compare Rails 5 and Phoenix for building, load testing, and optimizing a live polling app.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Here's the article where the creation of this app is explained](https://www.jeffmason.me)
