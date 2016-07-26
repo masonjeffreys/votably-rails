@@ -1,3 +1,0 @@
-class VerifyController < ApplicationController
-
-end
