@@ -3,7 +3,6 @@
 		<div id="poll-form">
 			<h1 class="center"><%= @poll.body %></h1>
 			<%= form_for [@poll, @poll_response] do %>
-			<%= hidden_field_tag "authenticity-token", form_authenticity_token %>
 				<% @poll.poll_choices.each do |pc| %>
 					<div class="input-group">
 				      <span class="input-group-addon">

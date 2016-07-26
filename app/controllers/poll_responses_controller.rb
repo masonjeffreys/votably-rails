@@ -1,6 +1,7 @@
 class PollResponsesController < ApplicationController
 
   def new
+    response.headers['X-Csrf-Token'] = form_authenticity_token
     @poll = Poll.includes(:poll_choices).find(params[:id])
     #check for previous response. Redirect to polls#show if it exists
     @previous_poll_response = @poll.poll_responses.where("user_id = ?", current_user.id)
