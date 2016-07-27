@@ -28,7 +28,7 @@ gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Profiling options
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
 
 
 # Use Capistrano for deployment
