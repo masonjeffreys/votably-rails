@@ -17,5 +17,8 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore loader verification
+/public/loaderio-666ec849f44f8f1a9e7362a29624d87f.txt
+
 # Ignore Byebug command history file.
 .byebug_history
