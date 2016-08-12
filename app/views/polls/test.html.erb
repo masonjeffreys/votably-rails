@@ -1,0 +1,40 @@
+<div id="stream-poll-responses" data-poll-id="<%= @poll.id %>" data-page-name="poll-test"></div>
+<div class="row">
+	<div class="col-md-6">
+		<%= render @poll %>
+	</div>
+	<div class="col-md-6 text-center">
+		<h1>Test response time</h1>
+		<div>
+			<%= form_for [@poll, @poll_response], remote: true do %>
+				<%= hidden_field_tag "authenticity-token", form_authenticity_token %><!--added for Tsung to get CSRF var-->
+				<% @poll.poll_choices.each do |pc| %>
+					<div class="input-group">
+				      <span class="input-group-addon">
+				        <%= radio_button_tag("poll_choice_id", pc.id, pc.body) %>
+				      </span>
+				      <%= label_tag "poll_choice_id_#{pc.id}", pc.body, class: "form-control" %>
+				    </div><!-- /input-group -->
+				<% end %>
+			 	<%= submit_tag "Submit", class: "btn btn-primary full-width", id: "submit-response-for-test" %>
+			<% end %>
+		</div>
+		<div id="timer" style="display:none">
+			<p>Start time: <span id="start-time"></span></p>
+			<p>End time: <span id="end-time">waiting ...</span></p>
+			<h4>Elapsed: <span id="elapsed-time">...</span> ms</h4>
+			<a href="<%= test_poll_path(@poll) %>" class="btn btn-primary full-width">refresh to perform another test</a>
+		</div>
+	</div>
+</div>
+
+<script>
+	$( document ).ready(function(){
+		$( "#submit-response-for-test" ).click(function() {
+			window.test_start_time = (new Date).getTime();
+  			$("#start-time").html(window.test_start_time);
+  			$("#new_poll_response").hide();
+  			$("#timer").show();
+		});
+	})
+</script>

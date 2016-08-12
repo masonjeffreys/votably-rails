@@ -13,7 +13,7 @@ class PollResponsesController < ApplicationController
     @poll_choice = PollChoice.includes(:poll).find(params[:poll_choice_id])
     #check for previous response. Redirect to polls#show if it exists
     @previous_poll_response = @poll_choice.poll.poll_responses.where("user_id = ?", current_user.id)
-    redirect_to @poll if @previous_poll_response.count > 0
+    redirect_to @poll and return if @previous_poll_response.count > 0
 
     tally = TallyPollResponse.new(@poll_choice, current_user.id)
 
@@ -25,9 +25,14 @@ class PollResponsesController < ApplicationController
       ActionCable.server.broadcast "polls:#{@poll.id}:responses",
           poll_choices: @poll.poll_choices,
           tally_count: @tally_count
-      redirect_to @poll and return
+      redirect_path = poll_path(@poll)
     else
-      redirect_to root_path and return
+      redirect_path = root_path
+    end
+
+    respond_to do |format|
+      format.html { redirect_to(redirect_path) }
+      format.js
     end
     
   end

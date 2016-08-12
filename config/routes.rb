@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :polls do
   	resources :poll_choices, only: [:new, :create]
   	resources :poll_responses, only: [:create]
+    get :test, :on => :member
   end
 
   root 'polls#new'
