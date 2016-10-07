@@ -17,4 +17,4 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
-  pool: 20
+  pool: <%= ENV['DB_POOL'] || 5 %>
